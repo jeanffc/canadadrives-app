@@ -43,7 +43,7 @@ export default function StaticUser({ user, posts, errors }: Props) {
           <Text>Username: {user.username.toLowerCase()}</Text>
           <Text>Email: <Text as="span" color="cyan.500">{user.email.toLowerCase()}</Text></Text>
           <Text>Phone: <Text as="span" color="cyan.500">{user.phone}</Text></Text>
-          <Text>Website: <Text as="span" color="cyan.500">{user.website}</Text></Text>
+          <Text>Website: <Text as="span" color="cyan.500"><a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer">{user.website}</a></Text></Text>
         </Box>
         <Box w="100%" p="6" border="1px">
           <Heading as="h4" size="md" mb={2}>Address</Heading>

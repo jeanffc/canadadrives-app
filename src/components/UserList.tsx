@@ -1,6 +1,8 @@
-import UserItem from "./UserItem";
-import { User } from "../interfaces";
 import { Box, Table, Tbody, Td, Tr } from "@chakra-ui/react";
+
+import UserItem from "./UserItem";
+
+import { User } from "../interfaces";
 
 type Props = {
   users: User[]
