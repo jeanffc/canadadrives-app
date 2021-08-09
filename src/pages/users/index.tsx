@@ -30,7 +30,9 @@ export default function Users({ users }: Props) {
   }, [searchValue])
 
   useEffect(() => {
-    // TO-DO
+    // TO-DO: search by email and username
+    const results = searchResults.sort((a, b) => a.name > b.name ? 1 : -1)
+    setSearchResults(results);
   }, [sortValue])
 
   return (
