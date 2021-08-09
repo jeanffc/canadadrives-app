@@ -9,7 +9,7 @@ I created this project to study about React, Next, Chakra UI.
 1. Install dependencies:
 
 ```bash
-npm instal
+npm install
 # or
 yarn
 ```
@@ -22,13 +22,15 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open locally:
+
+- [http://localhost:3000](http://localhost:3000)
 
 ## 📚 Stack
 
-- ReactJS
-- NextJS
-- Chakra UI
+- [ReactJS](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [Chakra UI](https://chakra-ui.com/)
 
 ## 📚 Concepts
 
