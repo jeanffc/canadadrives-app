@@ -1,5 +1,5 @@
-import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
+import { GetStaticProps } from "next";
 
 import UserList from "../../components/UserList";
 
