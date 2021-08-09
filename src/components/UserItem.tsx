@@ -11,12 +11,13 @@ export default function UserItem({ user }: Props) {
     <div>
       <div>avatar</div>
       <div>
-        {user.name}
-        {user.username}
+        <p>{user.name}</p>
+        <p>{user.username}</p>
       </div>
       <Link href='/users/[id]' as={`/users/${user.id}`}>
         <a>{user.email}</a>
       </Link>
+      <p>-</p>
     </div>
   )
 }

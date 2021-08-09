@@ -5,7 +5,7 @@ export default function UserDetail() {
     <div>
       User Detail
       <Link href='/'>
-        <a>voltar</a>
+        <a>Go back</a>
       </Link>
     </div>
   )

@@ -1,7 +1,9 @@
 import { GetStaticProps } from "next";
+import { useEffect, useState } from "react";
 
 import UserList from "../../components/UserList";
 
+import { sortOptions } from "../../utils";
 import { User } from "../../interfaces";
 
 type Props = {
@@ -9,14 +11,58 @@ type Props = {
 }
 
 export default function Users({ users }: Props) {
+  const [sortValue, setSortValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState(users);
+
+  const onSearch = e => {
+    setSearchValue(e.target.value);
+  }
+
+  const onSort = e => {
+    setSortValue(e.target.value);
+  }
+
+  useEffect(() => {
+    const results = users.filter(user => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+    setSearchResults(results);
+  }, [searchValue])
+
+  useEffect(() => {
+    // TO-DO
+  }, [sortValue])
+
   return (
     <>
       <h1>Users</h1>
       <div>
-        User Search Bar
+        <div>
+          <label htmlFor="search">Search</label>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search"
+            value={searchValue}
+            onChange={onSearch} />
+        </div>
+        <div>
+          <label htmlFor="sort">Sort By</label>
+          <select
+            id="sort"
+            value={sortValue}
+            onChange={onSort}
+          >
+            {sortOptions.map((option) => (
+              <option key={option.id} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
       </div>
       <div>
-        <UserList users={users} />
+        <UserList users={searchResults} />
       </div>
     </>
   )
