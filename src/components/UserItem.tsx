@@ -19,9 +19,11 @@ export default function UserItem({ user }: Props) {
       </Box>
       <Spacer />
       <Box>
-        <Link href='/users/[id]' as={`/users/${user.id}`}>
-          <a style={{ color: "rgb(51, 189, 221)" }}>{user.email.toLowerCase()}</a>
-        </Link>
+        <Text color="cyan.500">
+          <Link href='/users/[id]' as={`/users/${user.id}`}>
+            <a>{user.email.toLowerCase()}</a>
+          </Link>
+        </Text>
       </Box>
     </Flex>
   )

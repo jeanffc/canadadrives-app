@@ -35,7 +35,7 @@ export default function Users({ users }: Props) {
 
   return (
     <Flex m={4} direction={"column"}>
-      <Flex mb={4} direction={{ md: "row", sm: "column" }} alignItems={{ md: "center", sm: "left" }}>
+      <Flex mb={4} direction={{ md: "row", sm: "column" }}>
         <Box>
           <Heading>Users</Heading>
         </Box>
