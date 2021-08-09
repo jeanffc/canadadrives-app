@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
+import { Box, Flex, Heading, Input, Select, Spacer } from "@chakra-ui/react";
 
 import UserList from "../../components/UserList";
 
@@ -33,38 +34,42 @@ export default function Users({ users }: Props) {
   }, [sortValue])
 
   return (
-    <>
-      <h1>Users</h1>
-      <div>
-        <div>
-          <label htmlFor="search">Search</label>
-          <input
-            id="search"
-            type="text"
-            placeholder="Search"
-            value={searchValue}
-            onChange={onSearch} />
-        </div>
-        <div>
-          <label htmlFor="sort">Sort By</label>
-          <select
-            id="sort"
-            value={sortValue}
-            onChange={onSort}
-          >
-            {sortOptions.map((option) => (
-              <option key={option.id} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-      </div>
-      <div>
+    <Flex m={4} direction={"column"}>
+      <Flex mb={4} direction={{ md: "row", sm: "column" }} alignItems={{ md: "center", sm: "left" }}>
+        <Box>
+          <Heading>Users</Heading>
+        </Box>
+        <Spacer />
+        <Flex direction={{ md: "row", sm: "column" }}>
+          <Box mr={{ md: 4, sm: 0 }} mb={{ md: 0, sm: 2 }}>
+            <label htmlFor="search">Search</label>
+            <Input
+              id="search"
+              type="text"
+              placeholder="Search"
+              value={searchValue}
+              onChange={onSearch} />
+          </Box>
+          <Box>
+            <label htmlFor="sort">Sort By</label>
+            <Select
+              id="sort"
+              value={sortValue}
+              onChange={onSort}
+            >
+              {sortOptions.map((option) => (
+                <option key={option.id} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </Select>
+          </Box>
+        </Flex>
+      </Flex>
+      <Box>
         <UserList users={searchResults} />
-      </div>
-    </>
+      </Box>
+    </Flex>
   )
 }
 

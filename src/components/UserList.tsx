@@ -1,5 +1,6 @@
 import UserItem from "./UserItem";
 import { User } from "../interfaces";
+import { Box, Table, Tbody, Td, Tr } from "@chakra-ui/react";
 
 type Props = {
   users: User[]
@@ -7,10 +8,16 @@ type Props = {
 
 export default function UserList({ users }: Props) {
   return (
-    <div>
-      {users.map((user) => (
-        <UserItem key={user.id} user={user} />
-      ))}
-    </div>
+    <Table variant="striped">
+      <Tbody>
+        {users.map((user) => (
+          <Tr key={user.id}>
+            <Td m={0} p={0}>
+              <UserItem user={user} />
+            </Td>
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
   );
 }
