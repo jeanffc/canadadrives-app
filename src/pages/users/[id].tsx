@@ -24,7 +24,7 @@ export default function StaticUser({ user, posts, errors }: Props) {
   return (
     <>
       <div>
-        <Link href='/users'><a>Users</a></Link> > {user.name}
+        <Link href='/users'><a>Users</a></Link> &gt; {user.name}
       </div>
       {/* User */}
       <div>
@@ -42,12 +42,12 @@ export default function StaticUser({ user, posts, errors }: Props) {
         <h4>Company</h4>
         <p>{user.company.name}</p>
         <p>{user.company.bs}</p>
-        <p><i>"{user.company.catchPhrase}"</i></p>
+        <p><i>&quot;{user.company.catchPhrase}&quot;</i></p>
       </div>
       {/* Posts */}
       <h4>Posts by {user.name}</h4>
       {posts.map((post) => (
-        <div>
+        <div key={post.id}>
           <h4>{post.title}</h4>
           <p>{post.body}</p>
         </div>
