@@ -15,7 +15,7 @@ export default function UserItem({ user }: Props) {
       </Box>
       <Box>
         <Text>{user.name}</Text>
-        <Text>{user.username}</Text>
+        <Text>{user.username.toLowerCase()}</Text>
       </Box>
       <Spacer />
       <Box>
