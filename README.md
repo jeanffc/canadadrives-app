@@ -42,4 +42,4 @@ yarn dev
 - Grid
 - Responsive
 
-Did with ❤️ by Jean Campos
+Did with ❤️  by Jean Campos
