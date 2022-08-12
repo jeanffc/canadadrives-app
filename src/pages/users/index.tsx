@@ -12,9 +12,12 @@ type Props = {
 }
 
 export default function Users({ users }: Props) {
-  const [sortValue, setSortValue] = useState("");
+  const [sortValue, setSortValue] = useState("name");
   const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState(users);
+
+  const filteredResults = searchValue.length > 0
+    ? users.filter(user => user.name.toLowerCase().includes(searchValue.toLowerCase())).sort((a, b) => a[sortValue] > b[sortValue] ? 1 : -1)
+    : users.sort((a, b) => a[sortValue] > b[sortValue] ? 1 : -1);
 
   const onSearch = e => {
     setSearchValue(e.target.value);
@@ -23,17 +26,6 @@ export default function Users({ users }: Props) {
   const onSort = e => {
     setSortValue(e.target.value);
   }
-
-  useEffect(() => {
-    const results = users.filter(user => user.name.toLowerCase().includes(searchValue.toLowerCase()))
-    setSearchResults(results);
-  }, [searchValue])
-
-  useEffect(() => {
-    // TO-DO: search by email and username
-    const results = searchResults.sort((a, b) => a.name > b.name ? 1 : -1)
-    setSearchResults(results);
-  }, [sortValue])
 
   return (
     <Flex m={4} direction={"column"}>
@@ -69,7 +61,7 @@ export default function Users({ users }: Props) {
         </Flex>
       </Flex>
       <Box>
-        <UserList users={searchResults} />
+        <UserList users={filteredResults} />
       </Box>
     </Flex>
   )
